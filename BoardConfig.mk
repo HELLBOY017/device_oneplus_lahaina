@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE_PATH := device/oneplus/oneplus9
+DEVICE_PATH := device/oneplus/lahaina
 #BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 #BOARD_KERNEL_CMDLINE += \
 #    androidboot.selinux=permissive
@@ -134,7 +134,7 @@ USE_KERNEL_AOSP_LLVM := true
 TARGET_KERNEL_SOURCE := kernel/msm-5.4
 
 # OTA
-TARGET_OTA_ASSERT_DEVICE := OnePlus9,oneplus9
+TARGET_OTA_ASSERT_DEVICE := OnePlus9,oneplus9,OnePlus9Pro,oneplus9pro
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 201326592

@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=oneplus9
+DEVICE=lahaina
 VENDOR=oneplus
 
 # Load extract utilities and do some sanity checks.
@@ -31,6 +31,7 @@ setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 write_headers
 
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
+write_makefiles "${MY_DIR}/proprietary-files-lemonade.txt" true
 
 # Finish
 write_footers

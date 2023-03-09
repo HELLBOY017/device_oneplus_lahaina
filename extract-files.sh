@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=oneplus9
+DEVICE=lahaina
 VENDOR=oneplus
 
 # Load extract utilities and do some sanity checks.
@@ -25,7 +25,10 @@ fi
 source "${HELPER}"
 
 # Default to sanitizing the vendor folder before extraction.
-CLEAN_VENDOR=true
+CLEAN_VENDOR=false
+
+# Proprietary files list
+DEVICE_NAME="lemonadep"
 
 KANG=
 SECTION=
@@ -41,6 +44,9 @@ while [ "${#}" -gt 0 ]; do
         -s | --section )
                 SECTION="${2}"; shift
                 CLEAN_VENDOR=false
+                ;;
+	-d | --device )
+                DEVICE_NAME="${2}"; shift
                 ;;
         * )
                 SRC="${1}"
@@ -70,9 +76,14 @@ function blob_fixup() {
     esac
 }
 
-# Initialize the helper.
+# Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
-extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+if [ "${DEVICE_NAME}" = "lemonadep" ]; then
+    extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+elif [ "${DEVICE_NAME}" = "lemonade" ]; then
+    extract "${MY_DIR}/proprietary-files-lemonade.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+fi
+
 
 "${MY_DIR}/setup-makefiles.sh"

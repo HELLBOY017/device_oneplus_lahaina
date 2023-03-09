@@ -42,14 +42,25 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_platform_info.xml \
-    $(LOCAL_PATH)/configs/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_platform_info_intcodec.xml \
-    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/etc/mixer_paths.xml \
-    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/mixer_paths.xml \
-    $(LOCAL_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/etc/sound_trigger_mixer_paths.xml \
-    $(LOCAL_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/sound_trigger_mixer_paths.xml \
-    $(LOCAL_PATH)/configs/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_ODM)/etc/sound_trigger_platform_info.xml \
-    $(LOCAL_PATH)/configs/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/sound_trigger_platform_info.xml
+    $(LOCAL_PATH)/configs/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_ODM)/oneplus9/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/configs/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/oneplus9/etc/audio/sku_lahaina/audio_platform_info_intcodec.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/oneplus9/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/oneplus9/etc/audio/sku_lahaina/mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/oneplus9/etc/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/oneplus9/etc/audio/sku_lahaina/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_ODM)/oneplus9/etc/sound_trigger_platform_info.xml \
+    $(LOCAL_PATH)/configs/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/oneplus9/etc/audio/sku_lahaina/sound_trigger_platform_info.xml
+    
+# Audio - OP9P
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio/oneplus9pro/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_ODM)/oneplus9pro/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/configs/audio/oneplus9pro/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/oneplus9pro/etc/audio/sku_lahaina/audio_platform_info_intcodec.xml \
+    $(LOCAL_PATH)/configs/audio/oneplus9pro/mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/oneplus9pro/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/oneplus9pro/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/oneplus9pro/etc/audio/sku_lahaina/mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/oneplus9pro/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/oneplus9pro/etc/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/oneplus9pro/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/oneplus9pro/etc/audio/sku_lahaina/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/oneplus9pro/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_ODM)/oneplus9pro/etc/sound_trigger_platform_info.xml \
+    $(LOCAL_PATH)/configs/audio/oneplus9pro/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/oneplus9pro/etc/audio/sku_lahaina/sound_trigger_platform_info.xml
 
 PRODUCT_PACKAGES += \
     libstdc++.vendor
@@ -104,6 +115,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
+    libcamera2ndk_vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
 # DPM
@@ -175,6 +187,7 @@ PRODUCT_PACKAGES += \
     init.oplus.telephony.rc \
     init.oplus.touch.rc \
     init.oplus.wlan.rc \
+    init.overlayfs.rc \
     init.qti.ufs.rc \
     init.target.rc \
     ueventd.oplus.rc
@@ -312,7 +325,7 @@ PRODUCT_PACKAGES += \
     update_verifier
 
 # Vendor
-$(call inherit-product, vendor/oneplus/oneplus9/oneplus9-vendor.mk)
+$(call inherit-product, vendor/oneplus/lahaina/lahaina-vendor.mk)
 
 # Vibrator
 PRODUCT_PACKAGES += \
